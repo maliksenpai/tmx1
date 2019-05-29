@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Sayfalar.Kayit" >
+
+    <TextView
+        android:id="@+id/yaziid"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:text="İsim" />
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text=""
+        android:hint="Email"/>
+
+    <TextView
+        android:id="@+id/yazisifre"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="Sifre" />
+
+    <EditText
+        android:id="@+id/sifre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text=""
+        android:hint="Sifre"/>
+
+    <Button
+        android:id="@+id/kayit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kayit Ol" />
+</LinearLayout>
