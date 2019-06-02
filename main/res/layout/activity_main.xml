@@ -18,4 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Giris" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/liste"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:itemCount="16"
+        tools:listitem="@layout/recycler_view_item" />
 </LinearLayout>
