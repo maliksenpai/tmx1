@@ -23,7 +23,9 @@ public class Konular {
                 for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
                     String aciklama = dataSnapshot1.child("aciklama").getValue().toString();
                     String konu =dataSnapshot1.child("isim").getValue().toString();
-                    liste.add(new Listemodel(konu,aciklama));
+                    String enlem =dataSnapshot1.child("enlem").getValue().toString();
+                    String boylam =dataSnapshot1.child("boylam").getValue().toString();
+                  //  liste.add(new Listemodel(konu,aciklama));
                     Log.d("gelen", String.valueOf(liste.size()));
                 }
             }

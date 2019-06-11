@@ -1,6 +1,7 @@
 package com.example.tmx2.Adaptorler;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,6 +19,8 @@ import android.widget.Toast;
 import com.example.tmx2.Firebase.Konular;
 import com.example.tmx2.Modeller.Listemodel;
 import com.example.tmx2.R;
+import com.example.tmx2.Sayfalar.Anasayfa;
+import com.example.tmx2.Sayfalar.Harita;
 
 import java.util.ArrayList;
 
@@ -42,14 +45,19 @@ public class Konularadaptor extends RecyclerView.Adapter<Konularadaptor.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
         Log.d("sonuc", String.valueOf(i));
         viewHolder.textView.setText(models.get(i).getKonu());
         viewHolder.textView2.setText(models.get(i).getAciklama());
         viewHolder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, models.get(i).getKonu(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, models.get(i).getKonu(), Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(v.getContext(), Harita.class);
+                intent.putExtra("isim",models.get(i).getKonu());
+                intent.putExtra("boylam",models.get(i).getBoylam());
+                intent.putExtra("enlem",models.get(i).getEnlem());
+                v.getContext().startActivity(intent);
             }
         });
     }
@@ -67,6 +75,16 @@ public class Konularadaptor extends RecyclerView.Adapter<Konularadaptor.ViewHold
             textView=itemView.findViewById(R.id.textView1);
             textView2=itemView.findViewById(R.id.textView2);
             layout=itemView.findViewById(R.id.layout);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(v.getContext(), Anasayfa.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
+    }
+    public interface onClick{
+        void onClick(int position);
     }
 }
